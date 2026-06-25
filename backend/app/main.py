@@ -8,7 +8,7 @@ load_dotenv(env_path)
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import router
+from .routes.interview_routes import router
 from .db import init_db
 
 app = FastAPI(title="AI Interview Bot - Backend")
