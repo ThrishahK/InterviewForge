@@ -16,12 +16,12 @@ app = FastAPI(title="AI Interview Bot - Backend")
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+# allow_origins=["http://localhost:5173"],
 # API routes
 app.include_router(router, prefix="/api")
 
