@@ -52,9 +52,7 @@ def evaluate_answer(answer: str) -> Dict[str, Any]:
            .strip()
     )
 
-    #  Debug print — keep for now
-    print("Raw model output:", raw)
-    print("Cleaned output:", raw_clean)
+
 
     # Parse JSON safely
     try:

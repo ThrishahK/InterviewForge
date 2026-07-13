@@ -1,6 +1,20 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-createRoot(document.getElementById('root')).render(<App />)
+import App from './App';
+import { ThemeProvider } from './context/ThemeContext';
+import { InterviewProvider } from './context/InterviewContext';
+import './styles/index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <InterviewProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </InterviewProvider>
+    </ThemeProvider>
+  </React.StrictMode>
+);

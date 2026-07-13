@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Theme tokens are intentionally minimal at this stage (Step 3: scaffold only).
+  Full palette, type scale, and signature design choices are established in
+  Step 11 (visual design pass) per the agreed implementation plan.
+*/
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
+  @apply font-sans antialiased;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.font-display {
+  font-feature-settings: 'ss01' 1;
+  letter-spacing: -0.02em;
+}
+
+@keyframes blob-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
+}
+
+@keyframes blob-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, -4%) scale(1.05); }
+}
+
+/* Respect reduced-motion preferences globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Consistent visible focus state, filled in with brand accent during the design pass */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
