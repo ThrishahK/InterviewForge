@@ -66,7 +66,11 @@ export function RecordingControl({ isRecording, onStart, onStop, disabled }) {
       </div>
 
       <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400" aria-live="polite">
-        {isRecording ? `Recording… ${formatElapsed(elapsed)} · tap to stop` : 'Tap to answer by voice'}
+        {isRecording
+          ? `Recording… ${formatElapsed(elapsed)} · tap to stop`
+          : disabled
+            ? 'Get ready…'
+            : 'Tap to answer by voice'}
       </p>
     </div>
   );
