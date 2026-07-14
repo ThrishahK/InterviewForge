@@ -1,218 +1,382 @@
-# InterviewForge
+# 🎯 InterviewForge
 
-> **An AI-powered mock interview platform that generates adaptive interview questions, evaluates candidate responses, and provides personalized feedback using Large Language Models (LLMs).**
+> **An AI-powered mock interview platform that conducts adaptive technical interviews, evaluates candidate responses in real time, and generates comprehensive performance reports.**
 
-InterviewForge is an intelligent mock interview platform designed to simulate real-world technical and HR interviews. Instead of asking a fixed set of questions, the platform adapts the interview based on the candidate's resume, previous responses, and performance, creating a more realistic interview experience.
+<p align="center">
+  <i>Practice smarter. Receive personalized feedback. Build interview confidence.</i>
+</p>
 
-The project combines speech recognition, LLM-powered question generation, automated answer evaluation, and adaptive interview logic to help students and job seekers prepare for interviews effectively.
+---
+
+## 📖 Table of Contents
+
+* [Overview](#-overview)
+* [Features](#-features)
+* [System Architecture](#-system-architecture)
+* [Tech Stack](#-tech-stack)
+* [Project Structure](#-project-structure)
+* [How It Works](#-how-it-works)
+* [Getting Started](#-getting-started)
+* [Environment Variables](#-environment-variables)
+* [API Endpoints](#-api-endpoints)
+* [Screenshots](#-screenshots)
+* [Roadmap](#-roadmap)
+* [Future Improvements](#-future-improvements)
+* [Contributing](#-contributing)
+* [License](#-license)
 
 ---
 
-## ✨ Features
+# 📌 Overview
 
-### 🤖 AI Interview Generation
+InterviewForge is an AI-powered mock interview platform designed to simulate realistic technical interviews.
 
-- Dynamic interview question generation using LLMs
-- Technical and HR interview support
-- Resume-aware interview questions
-- Context-aware interview progression
-- Adaptive difficulty based on candidate performance
+Unlike traditional interview practice platforms that rely on static question banks, InterviewForge dynamically adapts the interview based on the candidate's responses. It generates personalized questions, evaluates spoken answers using Large Language Models (LLMs), adjusts difficulty throughout the interview, and produces a detailed performance report at the end.
+
+Whether you're preparing for internships, placements, or software engineering interviews, InterviewForge provides an interactive environment to practice communication, technical reasoning, and interview performance.
 
 ---
+
+# ✨ Features
+
+### 🤖 AI-Powered Interview Engine
+
+* Adaptive interview flow
+* Dynamic question generation
+* Resume-aware interviews
+* Context-aware follow-up questions
+* Difficulty adjustment based on candidate performance
 
 ### 📄 Resume Intelligence
 
-- Upload resumes in **DOCX** format
-- Automatic resume parsing
-- Extraction of:
-  - Personal Information
-  - Skills
-  - Projects
-  - Experience
-  - Education
-  - Certifications
-- Resume-specific interview question generation
+* Resume upload (optional)
+* Resume parsing
+* Skill extraction
+* Project identification
+* Experience analysis
+* Resume-based interview questions
+
+### 🎙️ Voice Interview
+
+* Speech-to-text transcription
+* Natural voice interaction
+* Real-time response processing
+
+### 🧠 AI Evaluation
+
+* Technical answer evaluation
+* Communication assessment
+* Strength identification
+* Improvement suggestions
+* Detailed scoring
+
+### 📊 Performance Report
+
+* Overall interview score
+* Topic-wise performance
+* Strengths & weaknesses
+* Personalized feedback
+* Interview history
 
 ---
 
-### 🎤 Voice-Based Interviews
+# 🏗️ System Architecture
 
-- Voice answer submission
-- Speech-to-text transcription using Whisper
-- Hands-free interview experience
+> **Architecture diagram will be added here.**
 
----
-
-### 🧠 AI Answer Evaluation
-
-Every candidate response is automatically evaluated for:
-
-- Overall Score
-- Topic Identification
-- Difficulty Level
-- Strengths
-- Weaknesses
-- Constructive Feedback
-
-Structured evaluation is generated after every response to enable adaptive interview progression.
-
----
-
-### 🔄 Adaptive Interview Flow
-
-InterviewForge continuously adjusts the interview by considering:
-
-- Resume context
-- Previous questions
-- Candidate answers
-- Evaluation results
-- Candidate performance
-
-This enables a dynamic interview rather than a predefined questionnaire.
-
----
-
-## 🏗️ System Workflow
-
-```text
-                  Resume Upload
-                        │
-                        ▼
-               Resume Parsing Engine
-                        │
-                        ▼
-            Resume-Aware Question Generator
-                        │
-                        ▼
-              Candidate Answers (Voice)
-                        │
-                        ▼
-            Whisper Speech-to-Text Engine
-                        │
-                        ▼
-              AI Answer Evaluation Engine
-                        │
-         ┌──────────────┼──────────────┐
-         │              │              │
-         ▼              ▼              ▼
-      Score         Feedback      Strengths &
-                                  Weaknesses
-                        │
-                        ▼
-           Adaptive Interview Decision Engine
-                        │
-                        ▼
-              Next Interview Question
+```
+Candidate
+    │
+    ▼
+React Frontend
+    │
+HTTP API
+    │
+    ▼
+FastAPI Backend
+    │
+ ┌───────────────┬────────────────┐
+ │               │                │
+ ▼               ▼                ▼
+Resume       Interview       Database
+Parser         Engine
+ │               │
+ └───────► Groq LLM ◄────────┘
+                 │
+                 ▼
+        Answer Evaluation
+                 │
+                 ▼
+         Adaptive Engine
+                 │
+                 ▼
+          Final Report
 ```
 
 ---
 
-## 🚀 Current Capabilities
+# 💻 Tech Stack
 
-- ✅ Resume Parsing
-- ✅ Resume Analysis
-- ✅ Resume-Based Question Generation
-- ✅ AI Interview Question Generation
-- ✅ Adaptive Interview Flow
-- ✅ Voice-to-Text Transcription
-- ✅ AI Answer Evaluation
-- ✅ Topic Detection
-- ✅ Candidate Scoring
-- ✅ Strength & Weakness Analysis
-- ✅ Personalized Feedback
+## Frontend
 
----
+* React
+* Vite
+* Tailwind CSS
 
-## 🛠️ Tech Stack
+## Backend
 
-### Frontend
+* Python
+* FastAPI
 
-- React
-- Vite
-- Tailwind CSS
+## Artificial Intelligence
 
-### Backend
+* Groq API
+* Whisper (Speech-to-Text)
+* Llama 3.3 70B (Question Generation & Evaluation)
 
-- FastAPI
-- Python
+## Database
 
-### AI Models & APIs
+* SQLite
 
-- Groq API
-- Llama 3.3 70B
-- Whisper (Speech-to-Text)
+## Development Tools
 
-### Database
-
-- SQLite
+* Git
+* GitHub
+* Postman / Swagger UI
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
-InterviewForge
+InterviewForge/
 │
 ├── frontend/
-│   ├── React
-│   ├── Tailwind CSS
-│   └── Vite
+│   ├── src/
+│   ├── public/
+│   └── ...
 │
 ├── backend/
-│   ├── API Routes
-│   ├── AI Services
-│   ├── Resume Parser
-│   ├── Interview Engine
-│   ├── Evaluation Engine
-│   ├── Models
-│   └── Database
+│   ├── interview/
+│   ├── routes/
+│   ├── database/
+│   ├── models/
+│   ├── utils/
+│   └── main.py
 │
-└── README.md
+├── docs/
+│
+├── README.md
+├── requirements.txt
+└── package.json
 ```
 
 ---
 
-## 📈 Development Status
+# ⚙️ How It Works
 
-### ✅ Completed
+```text
+Candidate
 
-- Resume Parsing
-- Resume Analysis
-- Resume-Based Question Generation
-- Dynamic AI Question Generation
-- Whisper Speech-to-Text Integration
-- AI Answer Evaluation
-- Adaptive Interview Flow
-- Structured Evaluation Output
+↓
 
-### 🚧 Planned Features
+Upload Resume (Optional)
 
-- ATS Resume Scoring
-- Authentication & User Profiles
-- Interview History
-- Performance Dashboard
-- Company-Specific Interview Mode
-- Coding Interview Environment
-- Real-Time Voice-to-Voice Interviews
-- Multi-language Support
-- Cloud Deployment
+↓
+
+Resume Parsing
+
+↓
+
+AI Question Generation
+
+↓
+
+Voice Answer
+
+↓
+
+Speech-to-Text
+
+↓
+
+AI Answer Evaluation
+
+↓
+
+Adaptive Decision Engine
+
+↓
+
+Next Question
+
+↓
+
+Interview Completion
+
+↓
+
+Performance Report
+```
 
 ---
 
-## 🎯 Project Vision
+# 🚀 Getting Started
 
-InterviewForge aims to provide an interview experience that closely resembles real technical interviews.
+## Clone the Repository
 
-Rather than simply asking questions, the platform understands a candidate's background, evaluates each response, identifies strengths and weaknesses, and adapts subsequent questions accordingly. The long-term goal is to build a comprehensive AI interview assistant that helps candidates prepare more effectively through personalized practice and actionable feedback.
+```bash
+git clone https://github.com/<your-username>/InterviewForge.git
+cd InterviewForge
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+
+pip install -r requirements.txt
+
+uvicorn main:app --reload
+```
 
 ---
 
-## 👩‍💻 Author
+## Frontend Setup
 
-**Thrisha K**
+```bash
+cd frontend
 
-Computer Science Engineering Student
+npm install
 
-Passionate about Artificial Intelligence, Machine Learning, and Full-Stack Development.
+npm run dev
+```
 
 ---
+
+# 🔑 Environment Variables
+
+Create a `.env` file inside the backend directory.
+
+```env
+GROQ_API_KEY=your_api_key_here
+DATABASE_URL=sqlite:///ai_interview.db
+```
+
+---
+
+# 🌐 API Endpoints
+
+| Method | Endpoint         | Description                          |
+| ------ | ---------------- | ------------------------------------ |
+| POST   | `/upload_resume` | Upload and parse resume              |
+| POST   | `/transcribe`    | Convert speech to text               |
+| GET    | `/next_question` | Generate the next interview question |
+| POST   | `/evaluate`      | Evaluate candidate response          |
+
+---
+
+# 📸 Screenshots
+
+> Screenshots will be added after frontend completion.
+
+* Landing Page
+* Resume Upload
+* Interview Screen
+* AI Question Interface
+* Final Performance Report
+
+---
+
+# 🎥 Demo
+
+A complete demo GIF showcasing the interview workflow will be added after deployment.
+
+---
+
+# 🛣️ Roadmap
+
+## ✅ Completed
+
+* Resume Upload
+* Resume Parsing
+* Resume Analysis
+* AI Question Generation
+* Adaptive Interview Engine
+* Speech-to-Text Integration
+* AI Answer Evaluation
+* FastAPI Backend
+* SQLite Integration
+
+## 🚧 In Progress
+
+* React Frontend
+* Final Report Dashboard
+* Responsive UI
+
+## 🔜 Planned
+
+* User Authentication
+* Interview History Dashboard
+* Company-specific Interview Modes
+* Coding Interview Support
+* Docker Deployment
+* Cloud Deployment
+* Multi-language Interviews
+* Analytics Dashboard
+
+---
+
+# 💡 Future Improvements
+
+* ATS Resume Analyzer
+* AI Career Coach
+* HR Interview Mode
+* Behavioral Interview Mode
+* Live Coding Environment
+* Custom Interview Templates
+* PDF Report Export
+* Email Report Delivery
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+If you would like to improve InterviewForge:
+
+1. Fork the repository
+2. Create a new feature branch
+3. Commit your changes
+4. Push your branch
+5. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project will be released under the MIT License.
+
+---
+
+# 🙏 Acknowledgements
+
+InterviewForge is built using several excellent open-source technologies and frameworks.
+
+Special thanks to the communities behind:
+
+* FastAPI
+* React
+* Tailwind CSS
+* Groq
+* Whisper
+* SQLite
+
+---
+
+<p align="center">
+  Built with ❤️ to help developers practice interviews with confidence.
+</p>
