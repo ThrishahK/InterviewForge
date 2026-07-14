@@ -5,8 +5,13 @@ import axios from 'axios';
  * (main.py allows http://localhost:5173) this targets the local dev server
  * by default. Override with VITE_API_BASE_URL if needed at build time.
  */
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
+const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
+export const apiClient = axios.create({
+  baseURL: `${BASE_URL}/api`,
+  timeout: 30000,
+});
 export const apiClient = axios.create({
   baseURL: BASE_URL,
   timeout: 30000,
