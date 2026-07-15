@@ -12,7 +12,7 @@ Built using **React**, **FastAPI**, **Groq**, **Whisper**, **Supabase PostgreSQL
 
 ## 🌐 Live Demo
 
-🔗 **Frontend:** https://interview-forge-mu.vercel.app
+🔗  https://interview-forge-mu.vercel.app
 
 ---
 
