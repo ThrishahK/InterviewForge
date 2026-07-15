@@ -295,8 +295,7 @@ def finish_interview(
             detail=str(e)
         )
 
-
-@router.get(
+'''@router.get(
     "/history",
     response_model=InterviewHistoryResponse,
 )
@@ -336,4 +335,12 @@ def history(
         raise HTTPException(
             status_code=500,
             detail=str(e)
-        )
+        )'''
+
+
+@router.get("/history")
+def get_history():
+    raise HTTPException(
+        status_code=403,
+        detail="Interview history is disabled in the public version."
+    )
